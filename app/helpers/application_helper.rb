@@ -1,7 +1,11 @@
 module ApplicationHelper
   def sort_link(column, title = nil)
     title ||= column.titleize
-    direction = column == sort_column && sort_direction == 'asc' ? 'desc' : 'asc'
+    direction = if column == sort_column && sort_direction == 'asc'
+                  'desc'
+                else
+                  'asc'
+                end
     icon = sort_direction == 'asc' ? 'fa fa-arrow-up' : 'fa fa-arrow-down'
     icon = column == sort_column ? icon : ''
     link_to "#{title} <span class='#{icon}'></span>".html_safe,

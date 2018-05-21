@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
 
   def tasks
     if params[:type] == 'mytask'
-       current_user.tasks.order("#{sort_column} #{sort_direction}")
-     else
-       Task.includes(:user).order("#{sort_column} #{sort_direction}")
-     end
+      current_user.tasks.order("#{sort_column} #{sort_direction}")
+    else
+      Task.includes(:user).order("#{sort_column} #{sort_direction}")
+    end
   end
 
   def sortable_columns

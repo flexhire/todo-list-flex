@@ -2,11 +2,8 @@ module SerializableResource
   class MissingSerializable < StandardError; end
 
   def self.serialize(resource)
-    if resource.respond_to?(:to_ary)
-      return Array(resource).map(&:serialize)
-    else
-      return resource.serialize
-    end
+    return Array(resource).map(&:serialize) if resource.respond_to?(:to_ary)
+    resource.serialize
   end
 
   def serialize
