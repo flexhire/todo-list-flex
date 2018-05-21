@@ -1,0 +1,14 @@
+nav.navbar.navbar-light.bg-light
+  a.navbar-brand href='/' Todo-List
+
+  ul.nav
+    - if current_user
+      li.nav-item
+        a.nav-link href="#{tasks_path}" Tasks
+      li.nav-item
+        a.nav-link href="#{destroy_user_session_path}" data-method='delete' Exit
+    - else
+      li.nav-item
+        a.nav-link href="#{new_user_session_path}" Login
+      li.nav-item
+        a.nav-link href="#{new_user_registration_path}" Sing up
