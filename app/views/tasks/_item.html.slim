@@ -1,6 +1,6 @@
 tr
   td
-    - if current_user 
+    - if current_user
       = form_for task, url: task_status_path(task), method: :patch do |f|
         .form-check
           = f.check_box :doit, class: 'form-check-input', onchange: 'this.form.submit();'
@@ -9,12 +9,12 @@ tr
 
   td = task.name
   td = task.due_date
-  td = task.priority
+  td = task.priority.capitalize
   td = task.user.email
   td
     - if current_user
         = link_to edit_task_path(task), class: 'btn btn-primary'
           = fa_icon "edit"
-  td 
+  td
     - if current_user
         = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'

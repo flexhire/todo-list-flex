@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:edit, :update, :destroy, :status]
+  before_action :set_task, only: %i[edit update destroy status]
 
   def index
     @tasks = tasks
@@ -9,8 +9,7 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def status
     if @task.update(task_params)
@@ -37,7 +36,7 @@ class TasksController < ApplicationController
   def update
     if @task.update(task_params)
       flash[:success] = 'Task was successfully updated.'
-      redirect_to edit_task_path(@task)
+      redirect_to tasks_path
     else
       flash[:error] = 'Error updating task'
       render :edit

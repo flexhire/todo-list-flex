@@ -10,7 +10,8 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.6'
 
 # DB
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'pg'
 
 # Authentication
 gem 'devise'
