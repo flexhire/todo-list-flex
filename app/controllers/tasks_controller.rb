@@ -27,7 +27,7 @@ class TasksController < ApplicationController
 
     if @task.save
       flash[:success] = 'Task was successfully created.'
-      redirect_to edit_task_path(@task)
+      redirect_to tasks_path
     else
       flash[:error] = 'Error creating task'
       render :new
